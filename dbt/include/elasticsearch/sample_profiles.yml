@@ -6,6 +6,6 @@ default:
       # Add sample credentials here, like:
       # host: <host>
       # port: <port_num>
-      # username: <user>
-      # password: <pass>
+      # api_key_id: <user>
+      # api_key_secret: <pass>
   target: dev

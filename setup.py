@@ -3,7 +3,7 @@ from setuptools import find_namespace_packages, setup
 
 package_name = "dbt-elasticsearch"
 # make sure this always matches dbt/adapters/elasticsearch/__version__.py
-package_version = "1.2.0a1"
+package_version = "1.1.0"
 description = """The elasticsearch adapter plugin for dbt"""
 
 setup(
@@ -11,13 +11,18 @@ setup(
     version=package_version,
     description=description,
     long_description=description,
-    author=<INSERT AUTHOR HERE>,
-    author_email=<INSERT EMAIL HERE>,
-    url=<INSERT URL HERE>,
-    packages=find_namespace_packages(include=['dbt', 'dbt.*']),
+    author="Gergely Imreh",
+    author_email="gergely@imreh.net",
+    url="https://github.com/imrehg/dbt-elasticsearch",
+    packages=find_namespace_packages(include=["dbt", "dbt.*"]),
     include_package_data=True,
     install_requires=[
-        "dbt-core==1.2.0a1",
-        <INSERT DEPENDENCIES HERE>
-    ]
+        "dbt-core>=1,<2",
+        "elasticsearch>8",
+    ],
+    classifiers=[
+        "Development Status :: 1 - Planning",
+        "License :: OSI Approved :: Apache Software License",
+    ],
+    python_requires=">=3.7",
 )

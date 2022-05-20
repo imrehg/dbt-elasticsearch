@@ -1,0 +1,13 @@
+fixed:
+  type: elasticsearch
+prompts:
+  host:
+    hint: 'hostname for the instance'
+  port:
+    default: 9200
+    type: 'int'
+  api_key_id:
+    hint: 'the id value of the API key'
+  api_key_secret:
+    hint: 'the key value of the API key'
+    hide_input: true

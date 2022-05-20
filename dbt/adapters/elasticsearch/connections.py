@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Optional
 
 from dbt.adapters.base import Credentials
 from dbt.adapters.sql import SQLConnectionManager
@@ -6,21 +7,22 @@ from dbt.adapters.sql import SQLConnectionManager
 
 @dataclass
 class ElasticsearchCredentials(Credentials):
-    # Add credentials members here, like:
-    # host: str
-    # port: int
-    # username: str
-    # password: str
+    host: str
+    port: int = 9200
+    api_key_id: Optional[str] = None
+    api_key_secret: Optional[str] = None
 
     @property
     def type(self):
-        return 'elasticsearch'
+        return "elasticsearch"
 
     def _connection_keys(self):
-        # return an iterator of keys to pretty-print in 'dbt debug'.
+        """
+        List of keys to display in the `dbt debug` output.
+        """
         # Omit fields like 'password'!
-        raise NotImplementedError
+        return ("host", "port", "api_key_id")
 
 
 class ElasticsearchConnectionManager(SQLConnectionManager):
-    TYPE = 'elasticsearch'
+    TYPE = "elasticsearch"
