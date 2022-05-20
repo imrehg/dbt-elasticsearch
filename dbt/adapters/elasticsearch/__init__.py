@@ -1,7 +1,9 @@
 from dbt.adapters.base import AdapterPlugin
 
 from dbt.adapters.elasticsearch.connections import (
-    ElasticsearchConnectionManager, ElasticsearchCredentials)
+    ElasticsearchConnectionManager,
+    ElasticsearchCredentials,
+)
 from dbt.adapters.elasticsearch.impl import ElasticsearchAdapter
 from dbt.include import elasticsearch
 
